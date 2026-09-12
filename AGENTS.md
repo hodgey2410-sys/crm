@@ -1,7 +1,7 @@
 ## GeorgeBot CRM Branding Overlay (highest priority)
 
 When the task is branding or rebranding, follow **only** the rules in this section.
-Ignore any conflicting upstream advice for these specific files.:
+Ignore any conflicting upstream advice for these specific files.
 - Only touch the exact files listed in the implementation plan.
 - Product name is GeorgeBot CRM.
 - Keep IS_MARKETING off.
@@ -34,7 +34,9 @@ description: "Customer Relationship Management for GeorgeBot CRM",
 
 
 4.  apps/app/public/site.webmanifest "name" and "short_name" → "GeorgeBot CRM".
+
 5.  Icon assets (keep filenames) Replace: favicon.svg, favicon-96x96.png, favicon.ico, apple-touch-icon.png, web-app-manifest-192x192.png, web-app-manifest-512x512.png.
+
 6.  packages/db/prisma/seed.ts Make the main seed function a no-op (early return) so db:seed does nothing. Prefer a clean empty workspace for the HVAC trial.
 
 Workspace name
