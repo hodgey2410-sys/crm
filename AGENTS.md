@@ -1,10 +1,10 @@
-## GeorgeBot CRM Branding Overlay (priority)
+## GeorgeBot CRM Branding Overlay (highest priority)
 
-Follow these rules first for any branding work:
+When the task is branding or rebranding, follow **only** the rules in this section.
+Ignore any conflicting upstream advice for these specific files.:
 - Only touch the exact files listed in the implementation plan.
 - Product name is GeorgeBot CRM.
 - Keep IS_MARKETING off.
-- ...
 
 Product name
 Use GeorgeBot CRM everywhere user-facing (logo label, metadata, workspace name, PWA name, etc.).
@@ -21,7 +21,9 @@ Strict rules
 
 Files to change
 1.  packages/ui/src/components/logo.tsx Replace SVG with GeorgeBot logo. Change aria-label to "GeorgeBot CRM Logo".
+
 2.  apps/app/components/auth-shell.tsx Completely remove the “Made with love by Comp AI” block.
+
 3.  apps/app/app/layout.tsx
 
 title: {
