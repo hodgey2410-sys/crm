@@ -1,3 +1,74 @@
+## GeorgeBot CRM Branding Overlay (priority)
+
+Follow these rules first for any branding work:
+- Only touch the exact files listed in the implementation plan.
+- Product name is GeorgeBot CRM.
+- Keep IS_MARKETING off.
+- ...
+
+Product name
+Use GeorgeBot CRM everywhere user-facing (logo label, metadata, workspace name, PWA name, etc.).
+
+Implementation Plan.
+
+Goal
+Rebrand only user-facing surfaces to GeorgeBot CRM so a normal user never sees Comp AI. Keep the change minimal and upstream-survivable. Landing page stays off. Seed is disabled for the trial.
+Strict rules
+•  Touch only the files listed below.
+•  Do not rename packages, change internal identifiers, or globally replace strings.
+•  Leave MIT licence and copyright notices untouched.
+•  Keep IS_MARKETING unset / false so root goes to sign-in (not the marketing landing page).
+
+Files to change
+1.  packages/ui/src/components/logo.tsx Replace SVG with GeorgeBot logo. Change aria-label to "GeorgeBot CRM Logo".
+2.  apps/app/components/auth-shell.tsx Completely remove the “Made with love by Comp AI” block.
+3.  apps/app/app/layout.tsx
+
+title: {
+  default: "GeorgeBot CRM",
+  template: "%s · GeorgeBot CRM",
+},
+description: "Customer Relationship Management for GeorgeBot CRM",
+
+
+4.  apps/app/public/site.webmanifest "name" and "short_name" → "GeorgeBot CRM".
+5.  Icon assets (keep filenames) Replace: favicon.svg, favicon-96x96.png, favicon.ico, apple-touch-icon.png, web-app-manifest-192x192.png, web-app-manifest-512x512.png.
+6.  packages/db/prisma/seed.ts Make the main seed function a no-op (early return) so db:seed does nothing. Prefer a clean empty workspace for the HVAC trial.
+
+Workspace name
+Set the workspace name to “GeorgeBot” or “GeorgeBot CRM” at setup time. The header already reads it dynamically.
+
+Env / routing (critical)
+•  Leave IS_MARKETING unset or set to anything other than "true".
+•  Root (/) must redirect to sign-in.
+•  After login the user must land in the authenticated dark-mode CRM UI (the view shown in the README screenshots), not the marketing landing page.
+
+Upstream survival helper
+After the branding commit, create a small script (e.g. scripts/rebrand-georgebot.sh or a tightly scoped git patch) that restores exactly the files above.
+Document the one-line command to run after every upstream pull/merge:
+
+
+# after merging upstream
+./scripts/rebrand-georgebot.sh
+
+
+Acceptance criteria
+•  Sign-in / auth screens show GeorgeBot logo only.
+•  Main header shows GeorgeBot logo + workspace name.
+•  Browser tab and favicon are GeorgeBot.
+•  No “Made with love by Comp AI”.
+•  No landing-page marketing content is served to users.
+•  Seed produces no Comp AI demo data.
+•  After an upstream merge + re-apply script, the branding remains intact.
+
+Out of scope
+•  The marketing landing page (leave it disabled).
+•  Any functional CRM changes.
+•  Global search/replace or package renames.
+Commit message suggestion
+brand: GeorgeBot CRM user-facing logo, name and icons (upstream-survivable overlay)
+
+
 # Strict rules — review before starting any work
 
 **Read the doc for the area you are touching before you touch it.** The table
