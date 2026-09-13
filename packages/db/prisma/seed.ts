@@ -992,20 +992,7 @@ async function seedActivities(
 }
 
 async function main() {
-	const rates = await seedRates();
-	const ownerIds = await seedOwners();
-	const companies = await seedCompanies(ownerIds);
-	const contacts = await seedContacts(companies, ownerIds);
-	const deals = await seedDeals(companies, contacts, ownerIds);
-	const activities = await seedActivities(companies, contacts, deals, ownerIds);
-	const companyFields = await seedCompanyFields();
-	await seedCompanyFieldValues(companyFields, companies, ownerIds);
-
-	console.log(
-		`Seeded ${companies.length} companies, ${contacts.length} contacts, ` +
-			`${deals.length} deals, ${activities} activities, ${rates} exchange rates, ` +
-			"7 company fields.",
-	);
+	return;
 }
 
 main()

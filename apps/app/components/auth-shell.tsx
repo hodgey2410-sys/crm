@@ -25,18 +25,6 @@ export function AuthShell({ children }: { children: ReactNode }) {
 						</h1>
 					</div>
 				</div>
-
-				<p className="relative font-mono text-xs/4 text-muted-foreground">
-					Made with love by{" "}
-					<a
-						href="https://trycomp.ai"
-						target="_blank"
-						rel="noreferrer"
-						className="underline underline-offset-4 hover:text-foreground"
-					>
-						Comp AI
-					</a>
-				</p>
 			</section>
 
 			<section className="flex min-h-svh flex-col bg-background px-6 py-8 sm:px-10 lg:px-14">
