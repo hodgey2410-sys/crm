@@ -18,7 +18,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent if "__file__" in dir() else Path.cwd()
-SRC = ROOT / "branding:logo.png.PNG"
+SRC = ROOT / "branding/logo.png"
 PUBLIC = ROOT / "apps/app/public"
 DARK = (8, 6, 0, 255)
 CLEAR = (0, 0, 0, 0)
