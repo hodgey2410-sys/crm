@@ -13,7 +13,7 @@ Invariants (never violate):
 
 •  Branding scripts stay focused solely on user-facing logo/name.
 
-Standing instruction (add once to AGENTS.md) After every upstream sync / merge:
+Standing instruction (add once to AGENTS.md): After every upstream sync / merge:
 1.  Re-apply branding scripts from scripts/ (logo + name only).
 
 2.  Re-apply the thin Jev layer (client module + capability flag + helper calls in identity/evidence paths). Treat both as non-breaking optional local layers. Do this before any production push.
